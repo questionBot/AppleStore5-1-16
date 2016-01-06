@@ -1,0 +1,119 @@
+<!-- XML element document describing one instance of a library object -->
+<!-- Apple Store Object containint all Apple Store Objects -->
+<myAppleStore> 
+
+	<!-- PRODUCTS -->
+	<!-- Instance of a Product -->
+	<Product>          
+	<!-- Attributes of an Instance -->                
+		<productType>Phone</productType>              
+		<productName>iPhone6</productName>
+		<serialNumber>383329nd</serialNumber>
+		<location>Upstairs back right table</location>
+		<availability>001</availability>
+	</Product>	
+	
+	<Product>                                      
+		<productType>Tablet</productType>          
+		<productName>iPad Air</productName>
+		<serialNumber>23322od</serialNumber>
+		<location>Downstairs front right table</location>
+		<availability>false</availability>
+	</Product>
+	
+	<Product>   
+		<productType>Laptop</productType>          
+		<productName>MacBook Pro 15</productName>
+		<serialNumber>12345Sn</serialNumber>
+		<location>Downstairs back left table</location>
+		<availability>true</availability>
+	</Product>
+	
+	
+	<!-- SERVICES -->
+	<!-- Instance of a Services -->
+	<Service>
+	<!-- Attributes of an Instance -->   
+		<nameOfService>AppleCare</nameOfService>
+		<priceRange>£200-£500 per year</priceRange>
+		<available>true</available>
+	</Service>
+	
+	<Service>
+		<nameOfService>Business at the Apple Store Workshop</nameOfService>
+		<priceRange>Free</priceRange>
+		<available>true</available>
+	</Service>
+	
+	<Service>
+		<nameOfService>Apple kids Summer Camp</nameOfService>
+		<priceRange>Free</priceRange>
+		<available>true</available>
+	</Service>
+	
+	
+	<!-- DISCOUNTS -->
+	<!-- Instance of a Discounts -->
+	<Discount>
+	<!-- Attributes of an Instance --> 
+		<discountType>Student</discountType>
+		<discountPercentage>15%</discountPercentage>
+		<accepted>false</accepted>
+	</Discount>
+	
+	<Discount>
+		<discountType>Staff</discountType>
+		<discountPercentage>20%</discountPercentage>
+		<accepted>false</accepted>
+	</Discount>
+	
+	
+	<!-- STORES -->
+	<!-- Instance of a Stores -->
+	<Store>
+		<name>Apple Store Stratford Westfield</name>             
+		<city>London</city>
+		<street>Westfield Stratford City</street>
+		<houseNumber>The Arcade</houseNumber>
+		<postcode>E20 1EQ</postcode>	
+		<phoneNumber>020 8277 2200</phoneNumber>
+	</Store> 
+	
+	<Store>                                       
+		<name>Apple Store White City Westfield</name>
+		<city>London</city>
+		<street>Westfield White City</street>
+		<houseNumber>n/a</houseNumber>
+		<postcode>W12 7GF</postcode>	
+		<phoneNumber>020 8433 4600</phoneNumber>
+	</Store>
+	
+	<Store>
+		<name>Apple Store Regent Street</name>          
+		<city>London</city>
+		<street>Regent Street</street>
+		<houseNumber>235</houseNumber>
+		<postcode>W1B 2EL</postcode>	
+		<phoneNumber>020 7153 9000</phoneNumber>
+	</Store> 
+	
+	<Store>
+		<name>Apple Store Covent Garden</name>            
+		<city>London</city>
+		<street>The Piazza</street>
+		<houseNumber>1-7</houseNumber>
+		<postcode>WC2E 8HB</postcode>	
+		<phoneNumber>020 7447 1400</phoneNumber>
+	</Store>   
+	
+	<Store>
+		<name>Apple Store Brent Cross</name>          
+		<city>London</city>
+		<street>Lower East Mall</street>
+		<houseNumber>1</houseNumber>
+		<postcode>NW4 3FP</postcode>	
+		<phoneNumber>020 3126 9200</phoneNumber>	
+	</Store>        
+	
+<!-- Closing myAppleStore Object  -->	
+</myAppleStore>     

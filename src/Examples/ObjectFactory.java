@@ -31,7 +31,7 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _Mylibrary_QNAME = new QName("", "mylibrary");
+    private final static QName _MyAppleStore_QNAME = new QName("", "myAppleStore");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: Examples
@@ -41,45 +41,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Library }
+     * Create an instance of {@link AppleStore }
      * 
      */
-    public Library createLibrary() {
-        return new Library();
+    public AppleStore createLibrary() {
+        return new AppleStore();
     }
-
-    /**
-     * Create an instance of {@link Member }
-     * 
-     */
-    public Member createMember() {
-        return new Member();
-    }
-
-    /**
-     * Create an instance of {@link Catalog }
-     * 
-     */
-    public Catalog createCatalog() {
-        return new Catalog();
-    }
-
-    /**
-     * Create an instance of {@link Lending }
-     * 
-     */
-    public Lending createLending() {
-        return new Lending();
-    }
-
-    /**
-     * Create an instance of {@link Book }
-     * 
-     */
-    public Book createBook() {
-        return new Book();
-    }
-    
+ 
     /**
      * Create an instance of {@link Product }
      * 
@@ -97,7 +65,7 @@ public class ObjectFactory {
     }
     
     /**
-     * Create an instance of {@link Service }
+     * Create an instance of {@link Discount }
      * 
      */
     public Discount createDiscount() {
@@ -114,12 +82,12 @@ public class ObjectFactory {
     
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Library }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link AppleStore }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "mylibrary")
-    public JAXBElement<Library> createMylibrary(Library value) {
-        return new JAXBElement<Library>(_Mylibrary_QNAME, Library.class, null, value);
+    @XmlElementDecl(namespace = "", name = "myAppleStore")
+    public JAXBElement<AppleStore> createMylibrary(AppleStore value) {
+        return new JAXBElement<AppleStore>(_MyAppleStore_QNAME, AppleStore.class, null, value);
     }
 
 }

@@ -18,12 +18,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for Library complex type.
+ * <p>Java class for AppleStore complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="Library">
+ * &lt;complexType name="AppleStore">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -52,7 +52,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Library", propOrder = {
+@XmlType(name = "AppleStore", propOrder = {
     "name",
     "city",
     "street",
@@ -61,13 +61,9 @@ import javax.xml.bind.annotation.XmlType;
     "store",
     "product",
     "service",
-    "discount",
-    "book",
-    "member",
-    "catalog",
-    "lending"
+    "discount"
 })
-public class Library {
+public class AppleStore {
 
     @XmlElement(required = true)
     protected String name;
@@ -79,8 +75,6 @@ public class Library {
     protected BigInteger housenumber;
     @XmlElement(required = true)
     protected String postcode;
-    @XmlElement(name = "Book", required = true)
-    protected List<Book> book;
     
     
     @XmlElement(name = "Store", required = true)
@@ -92,12 +86,6 @@ public class Library {
     @XmlElement(name = "Discount", required = true)
     protected List<Discount> discount;
     
-    @XmlElement(name = "Member", required = true)
-    protected List<Member> member;
-    @XmlElement(name = "Catalog", required = true)
-    protected List<Catalog> catalog;
-    @XmlElement(name = "Lending", required = true)
-    protected List<Lending> lending;
 
     /**
      * Gets the value of the name property.
@@ -260,22 +248,16 @@ public class Library {
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getBook().add(newItem);
+     *    getProduct().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Book }
+     * {@link Product }
      * 
      * 
      */
-    public List<Book> getBook() {
-        if (book == null) {
-            book = new ArrayList<Book>();
-        }
-        return this.book;
-    }
     
     public List<Product> getProduct() {
         if (product == null) {
@@ -341,92 +323,6 @@ public class Library {
         }
         return this.discount;
     }
-    
-    /**
-     * Gets the value of the member property.
-     * 
-     * <p>
-     * This getter method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the member property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getMember().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Member }
-     * 
-     * 
-     */
-    public List<Member> getMember() {
-        if (member == null) {
-            member = new ArrayList<Member>();
-        }
-        return this.member;
-    }
 
-    /**
-     * Gets the value of the catalog property.
-     * 
-     * <p>
-     * This getter method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the catalog property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getCatalog().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Catalog }
-     * 
-     * 
-     */
-    public List<Catalog> getCatalog() {
-        if (catalog == null) {
-            catalog = new ArrayList<Catalog>();
-        }
-        return this.catalog;
-    }
-
-    /**
-     * Gets the value of the lending property.
-     * 
-     * <p>
-     * This getter method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the lending property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getLending().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Lending }
-     * 
-     * 
-     */
-    public List<Lending> getLending() {
-        if (lending == null) {
-            lending = new ArrayList<Lending>();
-        }
-        return this.lending;
-    }
 
 }
