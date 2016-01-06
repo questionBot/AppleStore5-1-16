@@ -1,0 +1,211 @@
+
+<!--  Our one element xml document, describing one instance of a Library object -->
+
+<mylibrary>      <!-- the one libraryobject conatining alle the info -->
+
+<!-- 	<name>UWL Library</name>             here follow all attributes of the mylibrary object
+	<city>Ealing</city>
+	<street>St Marys Road</street>
+	<housenumber>11</housenumber>
+	<postcode>W 13</postcode>	 -->
+	
+	
+	<Product>                                       <!-- An Instance of a book -->
+		<productType>Phone</productType>              <!-- And its attributes -->
+		<productName>iPhone6</productName>
+		<serialNumber>383329nd</serialNumber>
+		<location>Upstairs back right table</location>
+		<availability>001</availability>
+	</Product>	
+	<Product>                                       <!-- An Instance of a book -->
+		<productType>Tablet</productType>              <!-- And its attributes -->
+		<productName>iPad Air</productName>
+		<serialNumber>23322od</serialNumber>
+		<location>Downstairs front right table</location>
+		<availability>false</availability>
+	</Product>
+	
+	<Service>
+		<nameOfService>AppleCare</nameOfService>
+		<priceRange>£200-£500 per year</priceRange>
+		<available>true</available>
+	</Service>
+	
+	<Service>
+		<nameOfService>Business at the Apple Store Workshop</nameOfService>
+		<priceRange>Free</priceRange>
+		<available>true</available>
+	</Service>
+	
+	<Service>
+		<nameOfService>Apple kids Summer Camp</nameOfService>
+		<priceRange>Free</priceRange>
+		<available>true</available>
+	</Service>
+	
+	<Discount>
+		<discountType>Student</discountType>
+		<discountPercentage>15%</discountPercentage>
+		<accepted>false</accepted>
+	</Discount>
+	
+	<Discount>
+		<discountType>Staff</discountType>
+		<discountPercentage>20%</discountPercentage>
+		<accepted>false</accepted>
+	</Discount>
+	
+	<Store>                                     <!-- An Instance of a book -->
+		<name>Apple Store Stratford Westfield</name>             here follow all attributes of the mylibrary object
+		<city>London</city>
+		<street>Westfield Stratford City</street>
+		<houseNumber>The Arcade</houseNumber>
+		<postcode>E20 1EQ</postcode>	
+		<phoneNumber>020 8277 2200</phoneNumber>
+	</Store> 
+	
+	<Store>                                       <!-- An Instance of a book -->
+		<name>Apple Store White City Westfield</name>            <!--  here follow all attributes of the mylibrary object -->
+		<city>London</city>
+		<street>Westfield White City</street>
+		<houseNumber>n/a</houseNumber>
+		<postcode>W12 7GF</postcode>	
+		<phoneNumber>020 8433 4600</phoneNumber>
+	</Store>
+	
+	<Store>
+		<name>Apple Store Regent Street</name>             here follow all attributes of the mylibrary object
+		<city>London</city>
+		<street>Regent Street</street>
+		<houseNumber>235</houseNumber>
+		<postcode>W1B 2EL</postcode>	
+		<phoneNumber>020 7153 9000</phoneNumber>
+	</Store> 
+	
+	<Store>
+		<name>Apple Store Covent Garden</name>             here follow all attributes of the mylibrary object
+		<city>London</city>
+		<street>The Piazza</street>
+		<houseNumber>1-7</houseNumber>
+		<postcode>WC2E 8HB</postcode>	
+		<phoneNumber>020 7447 1400</phoneNumber>
+	</Store>   
+	
+	<Store>
+		<name>Apple Store Brent Cross</name>             here follow all attributes of the mylibrary object
+		<city>London</city>
+		<street>Lower East Mall</street>
+		<houseNumber>1</houseNumber>
+		<postcode>NW4 3FP</postcode>	
+		<phoneNumber>020 3126 9200</phoneNumber>	
+	</Store>        
+	
+	
+	<Book>                                       <!-- An Instance of a book -->
+		<autor>Dostoyjewski</autor>              <!-- And its attributes -->
+		<title>War and Peace</title>
+		<isbn>12345Sn</isbn>
+		<location>shelf 3 row 4</location>
+		<islend>001</islend>
+	</Book>
+	<Book>
+		<autor>Wells</autor>
+		<title>The war of the worlds</title>
+		<isbn>12345Sn4567</isbn>
+		<location>shelf 4 row 5</location>
+		<islend>null</islend>
+	</Book>
+	<Book>
+		<autor>kwacho</autor>
+		<title>The time machine</title>
+		<isbn>375954Fe4599</isbn>
+		<location>shelf 7 row 11</location>
+		<islend>null</islend>
+	</Book>
+	
+	<Book>
+		<autor>kwacho</autor>
+		<title>heyah</title>
+		<isbn>98743962yh432</isbn>
+		<location>shelf 2 row 22</location>
+		<islend>1</islend>
+	</Book>
+	
+	
+	<Member>
+		<surname>Joe</surname>
+		<lastname>Average</lastname>
+		<age>25</age>
+		<memberid>J_AV_25</memberid>
+		
+		<city>London</city>
+		<street>Bond Street</street>
+		<housenumber>14</housenumber>
+		<postcode>L 7</postcode>	
+	  
+	    <haslend>null</haslend>
+	</Member>
+	<Member>
+		<surname>Susan</surname>
+		<lastname>Someone</lastname>
+		<age>68</age>
+		<memberid>S_SO_68</memberid>
+		
+		<city>Ealing</city>
+		<street>Cairn Road</street>
+		<housenumber>17</housenumber>
+		<postcode>W 14</postcode>	
+	    
+	    <haslend>001</haslend>
+	</Member>
+	<Member>
+		<surname>Tim</surname>
+		<lastname>Buktu</lastname>
+		<age>18</age>
+		<memberid>T_BU_99</memberid>
+		
+		<city>Ealing</city>
+		<street>Uxbridge Road</street>
+		<housenumber>111</housenumber>
+		<postcode>W 22</postcode>	
+	    
+	    <haslend>55</haslend>
+	</Member>
+	
+	<Catalog>
+		<name>scifibooks</name>
+		<url>www.somwhere.uk/scifi</url>
+		<location>upper storie left</location>
+		<Books>12345Sn4567#375954Fe4567#</Books>
+	</Catalog>
+	<Catalog>
+		<name>boringbooks</name>
+		<url>www.somwhere.uk/boring</url>
+		<location>lower storie right</location>
+		<Books>12345Sn#</Books>
+	</Catalog>
+	
+	<Lending>
+		<lendid>001</lendid>
+		<memberid>S_SO_68</memberid>
+		<isbn>12345Sn</isbn>
+		<startdate>01102011</startdate>
+		<enddate>22102011</enddate>	
+	</Lending>
+	<Lending>
+		<lendid>002</lendid>
+		<memberid>S_SO_68</memberid>
+		<serialNumber>12345XZ</serialNumber>
+		<isbn>12345XZ</isbn>
+		<startdate>01102011</startdate>
+		<enddate>22102011</enddate>	
+	</Lending>
+	<Lending>
+		<lendid>003</lendid>
+		<memberid>S_SO_68</memberid>
+		<isbn>0372</isbn>
+		<startdate>01102011</startdate>
+		<enddate>22102011</enddate>	
+	</Lending>
+
+</mylibrary>     <!-- closing the one libraryobject conatining alle the info -->
