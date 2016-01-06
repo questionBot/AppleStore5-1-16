@@ -15,12 +15,10 @@ import Examples.Service;
 import Examples.Discount;
 import Examples.Store;
 
-
 import Examples.SimpleGUI;
 
 public class Reasoner {
 	
-
 	/* Main class Object that holds the domain knowledge
 	 * Will generate classes automatically 
 	 * 
@@ -42,31 +40,30 @@ public class Reasoner {
 	public Vector<String> productSyn = new Vector<String>();
 	public Vector<String> serviceSyn = new Vector<String>();
 	public Vector<String> discountSyn = new Vector<String>();   
-	public Vector<String> recentobjectsyn = new Vector<String>();
+	public Vector<String> recentobjectSyn = new Vector<String>();
 
-	/*	QUESTIONTYPE SELECTS METHOD TO USE IN QUERY	*/
-	public String questiontype = "";         
-	/*	CLASSTYPE SELECTS WHICH CLASS LIST TO QUERY	*/
-	public List classtype = new ArrayList(); 
+	/*	questionType SELECTS METHOD TO USE IN QUERY	*/
+	public String questionType = "";         
+	/*	classType SELECTS WHICH CLASS LIST TO QUERY	*/
+	public List classType = new ArrayList(); 
 	/*	ATTRIBUTE TYPE SELECTS THE ATTRIBUTE TO CHECK FOR IN THE QUERY	*/
-	public String attributetype = "";        
+	public String attributeType = "";        
 
 	/*	LAST OBJECT DEAL WITH	*/
-	public Object Currentitemofinterest;
+	public Object CurrentiTemOfInterest;
 	/* LAST INDEX TO BE USED	*/
-	public Integer Currentindex;         
+	public Integer CurrentIndex;         
 
-	public String tooltipstring = "";
+	public String toolTipString = "";
 	
 	/*	MAIN QUESTION WORDS	*/
 	public String list = "list";
 	public String amount = "amount";
-	public String checkfor = "checkfor";
+	public String checkFor = "checkfor";
 	
 	
 	/*	URL FOR WEBSITE */
-	public String URL = "";              
-//	public String URL2 = "";        
+	public String URL = "";                    
 	
 	/*	SET WEBSITE URL */
 	public String setURL(){
@@ -119,7 +116,7 @@ public class Reasoner {
 		JAXB_XMLParser xmlhandler = new JAXB_XMLParser();
 
 		/* Load AppleStore XML File */
-		File xmlfiletoload = new File("AppleStore.xml");  
+		File xmlFileToLoad = new File("AppleStore.xml");  
 
 		/*	Vector type + specific words to be listen	*/
 		/*Store*/
@@ -131,12 +128,12 @@ public class Reasoner {
 		/*Discount*/
 		addWordsToVector(discountSyn,"discount","discounts","student");
 		/*Recent Object - Spaces to prevent collision with "wHERe"*/
-		addWordsToVector(recentobjectsyn," this"," that"," him"," her", "it");
+		addWordsToVector(recentobjectSyn," this"," that"," him"," her", "it");
 
 
 		try {
 			/* Initiate input stream */
-			FileInputStream readthatfile = new FileInputStream(xmlfiletoload);
+			FileInputStream readthatfile = new FileInputStream(xmlFileToLoad);
 
 			theAppleStore = xmlhandler.loadXML(readthatfile);
 			
@@ -160,13 +157,13 @@ public class Reasoner {
 	 * and do something with it. Specified Strings will be displayed in bold.
 	 *
 	 *Example use: 
-	 * 	acceptQuestionType(input, list, "list all","display all","show all");
+	 * 	acceptquestionType(input, list, "list all","display all","show all");
 	 * 
 	 * */
-	public String acceptQuestionType(String input, String two, String... args){
+	public String acceptquestionType(String input, String two, String... args){
 		
 	    for (String arg : args) {	    	
-	    	if (input.contains(arg)){questiontype = two; 
+	    	if (input.contains(arg)){questionType = two; 
 			input = input.replace(arg, "<b>"+arg+"</b>");} 		
 	    }
 		return input;
@@ -177,15 +174,15 @@ public class Reasoner {
 		
 		/*returns the String, converted to lowercase.*/
 		input = input.toLowerCase(); 
-		Integer subjectcounter = 0;
+		Integer subjectCounter = 0;
 		
 		for (int x = 0; x < arg1.size(); x++) {   
 			if (input.contains((CharSequence) arg1.get(x))) {    
-				classtype = agr2;             
+				classType = agr2;             
 				
 				input = input.replace((CharSequence) arg1.get(x), "<b>"+arg1.get(x)+"</b>");
 				
-				subjectcounter = 1;
+				subjectCounter = 1;
 				sop("Class type" + agr2 + "recognised.");
 			}
 		}
@@ -197,15 +194,15 @@ public class Reasoner {
 		Vector<String> out = new Vector<String>();
 		out.clear();                 // just to make sure this is a new and clean vector
 		
-		questiontype = "none";
+		questionType = "none";
 
 		/*Check if answer was generated*/
 		Integer Answered = 0;        
 
 		/*Counter to keep track of # of identified subjects (classes)*/
-		Integer subjectcounter = 0;  
+		Integer subjectCounter = 0;  
 		
-		// Answer Generation Idea: content = Questiontype-method(classtype class) (+optional attribute)
+		// Answer Generation Idea: content = questionType-method(classType class) (+optional attribute)
 
 		/*All in lower case because thats easier to analyse*/
 		input = input.toLowerCase();
@@ -219,11 +216,11 @@ public class Reasoner {
 		/*CHECK FOR A 
 		 * 
 		 * Below Examples are the same initial code/example as:
-		 * if (input.contains("how many")){questiontype = "amount"; input = input.replace("how many", "<b>how many</b>");} 
+		 * if (input.contains("how many")){questionType = "amount"; input = input.replace("how many", "<b>how many</b>");} 
 		 * */		
-		acceptQuestionType(input, list, "list","list all","display","display all","show","show all");
-		acceptQuestionType(input, amount, "how many","number of","amount of","count");
-		acceptQuestionType(input, checkfor, "is there a","i am searching","i am looking for","do you have","i look for","is there");
+		acceptquestionType(input, list, "list","list all","display","display all","show","show all");
+		acceptquestionType(input, amount, "how many","number of","amount of","count");
+		acceptquestionType(input, checkFor, "is there a","i am searching","i am looking for","do you have","i look for","is there");
 	
 		if (input.contains("where") 
 				|| input.contains("can't find")
@@ -231,7 +228,7 @@ public class Reasoner {
 				|| input.contains("way to"))
 
 		{
-			questiontype = "location";
+			questionType = "location";
 			sop("Find Location");
 		}
 		
@@ -241,7 +238,7 @@ public class Reasoner {
 				|| input.contains("cool thank")) 			
 
 		{
-			questiontype = "farewell";
+			questionType = "farewell";
 			sop("farewell");
 		}
 
@@ -258,32 +255,32 @@ public class Reasoner {
 		
 		
 		
-		if(subjectcounter == 0){
-			for (int x = 0; x < recentobjectsyn.size(); x++) {  
-				if (input.contains(recentobjectsyn.get(x))) {
-					classtype = theRecentThing;
+		if(subjectCounter == 0){
+			for (int x = 0; x < recentobjectSyn.size(); x++) {  
+				if (input.contains(recentobjectSyn.get(x))) {
+					classType = theRecentThing;
 					
-					input = input.replace(recentobjectsyn.get(x), "<b>"+recentobjectsyn.get(x)+"</b>");
+					input = input.replace(recentobjectSyn.get(x), "<b>"+recentobjectSyn.get(x)+"</b>");
 					
-					subjectcounter = 1;
-					sop("Class type recognised as"+recentobjectsyn.get(x));
+					subjectCounter = 1;
+					sop("Class type recognised as"+recentobjectSyn.get(x));
 				}
 			}
 		}
 
 		// More than one subject in question + Apple Store
 
-		sop("subjectcounter = "+subjectcounter);
+		sop("subjectcounter = "+subjectCounter);
 
 		for (int x = 0; x < appleStoreSyn.size(); x++) {  
 
 			if (input.contains(appleStoreSyn.get(x))) {   
 				
-				if (subjectcounter == 0) { // AppleStore is the first subject in the question
+				if (subjectCounter == 0) { // AppleStore is the first subject in the question
 					
 					input = input.replace(appleStoreSyn.get(x), "<b>"+appleStoreSyn.get(x)+"</b>");
 					
-					classtype = theAppleStoreList;   
+					classType = theAppleStoreList;   
 
 					sop("class type AppleStore recognised");		
 
@@ -294,66 +291,66 @@ public class Reasoner {
 		// Compose Method call and generate answerVector
 
 		/*Number of Subject*/
-		if (questiontype == "amount") {
+		if (questionType == "amount") {
 
-			Integer numberof = Count(classtype);
+			Integer numberOf = Count(classType);
 
 			answer=("The number of "
-					+ classtype.get(0).getClass().getSimpleName() + "s is "
-					+ numberof + ".");
+					+ classType.get(0).getClass().getSimpleName() + "s is "
+					+ numberOf + ".");
 
 			
 			Answered = 1; 
 
 		}
 
-		if (questiontype == "list") { // List all Subjects of a kind
+		if (questionType == "list") { // List all Subjects of a kind
 
 			answer=("You asked for the listing of all "
-					+ classtype.get(0).getClass().getSimpleName() + "s. <br>"
+					+ classType.get(0).getClass().getSimpleName() + "s. <br>"
 					+ "We have the following "
-					+ classtype.get(0).getClass().getSimpleName() + "s:"
-					+ ListAll(classtype));
+					+ classType.get(0).getClass().getSimpleName() + "s:"
+					+ ListAll(classType));
 			
 			Answered = 1; 
 
 		}
 
 		/*Test for a certain Subject instance*/
-		if (questiontype == "checkfor") {
+		if (questionType == "checkfor") {
 
-			Vector<String> check = CheckFor(classtype, input);
+			Vector<String> check = CheckFor(classType, input);
 			answer=(check.get(0));
 			/* An answer Given*/
 			Answered = 1; 
 			if (check.size() > 1) {
-				Currentitemofinterest = classtype.get(Integer.valueOf(check
+				CurrentiTemOfInterest = classType.get(Integer.valueOf(check
 						.get(1)));
-				sop("Classtype List = "
-						+ classtype.getClass().getSimpleName());
+				sop("classType List = "
+						+ classType.getClass().getSimpleName());
 				sop("Index in Liste = "
 						+ Integer.valueOf(check.get(1)));
-				Currentindex = Integer.valueOf(check.get(1));
+				CurrentIndex = Integer.valueOf(check.get(1));
 				/*Clear it before adding (changing) the*/
 				theRecentThing.clear(); 
 				/*Recent thing*/
-				theRecentThing.add(classtype.get(Currentindex));
+				theRecentThing.add(classType.get(CurrentIndex));
 			}
 		}
 
 		// Location Question in Pronomial form "Where can i find it"
 
-		if (questiontype == "location") {   // We always expect a pronomial question to refer to the last
+		if (questionType == "location") {   // We always expect a pronomial question to refer to the last
 											// object questioned for
 
 			answer=("You can find the "
-					+ classtype.get(0).getClass().getSimpleName() + " " + "at "
-					+ Location(classtype, input));
+					+ classType.get(0).getClass().getSimpleName() + " " + "at "
+					+ Location(classType, input));
 
 			Answered = 1; 
 		}
 
-		if (questiontype == "farewell") {       // Reply to a farewell
+		if (questionType == "farewell") {       // Reply to a farewell
 			
 			answer=("You are welcome.");
 
@@ -379,10 +376,10 @@ public class Reasoner {
 
 		//URL = "http://en.wiktionary.org/wiki/"		
 
-		URL = getURL() + classtype.get(0).getClass().getSimpleName().toLowerCase();
+		URL = getURL() + classType.get(0).getClass().getSimpleName().toLowerCase();
 		sop("URL = "+URL);
-		tooltipstring = readwebsite(URL);
-		String html = "<html>" + tooltipstring + "</html>";
+		toolTipString = readwebsite(URL);
+		String html = "<html>" + toolTipString + "</html>";
 		Myface.setmytooltip(html);
 		Myface.setmyinfobox(URL);
 
@@ -393,60 +390,60 @@ public class Reasoner {
 	
 	public String ListAll(List thelist) {
 
-		String listemall = "<ul>";
+		String listAlll = "<ul>";
 		
 		if (thelist == theStoreList) {                                 
 			for (int i = 0; i < thelist.size(); i++) {
 				Store curStore = (Store) thelist.get(i);                
-				listemall = listemall + "<li>" + (curStore.getStoreName() + "</li>"); 
+				listAlll = listAlll + "<li>" + (curStore.getStoreName() + "</li>"); 
 			}
 		}
 		
 		if (thelist == theProductList) {                                 
 			for (int i = 0; i < thelist.size(); i++) {
 				Product curProduct = (Product) thelist.get(i);              
-				listemall = listemall + "<li>" + (curProduct.getProductType() + "</li>"); 
+				listAlll = listAlll + "<li>" + (curProduct.getProductType() + "</li>"); 
 			}
 		}
 		
 		if (thelist == theServiceList) {                               
 			for (int i = 0; i < thelist.size(); i++) {
 				Service curService = (Service) thelist.get(i);                 
-				listemall = listemall + "<li>" + (curService.getServiceName() + "</li>"); 
+				listAlll = listAlll + "<li>" + (curService.getServiceName() + "</li>"); 
 			}
 		}
 		
 		if (thelist == theDiscountList) {                               
 			for (int i = 0; i < thelist.size(); i++) {
 				Discount curDiscount = (Discount) thelist.get(i);                 
-				listemall = listemall + "<li>" + (curDiscount.getDiscountType() + "</li>");  
+				listAlll = listAlll + "<li>" + (curDiscount.getDiscountType() + "</li>");  
 			}
 		}
 
 		
-		listemall += "</ul>";
+		listAlll += "</ul>";
 
-		URL = getURL() + classtype.get(0).getClass().getSimpleName().toLowerCase();
+		URL = getURL() + classType.get(0).getClass().getSimpleName().toLowerCase();
 		sop("URL = "+URL);
-		tooltipstring = readwebsite(URL);
-		String html = "<html>" + tooltipstring + "</html>";
+		toolTipString = readwebsite(URL);
+		String html = "<html>" + toolTipString + "</html>";
 		Myface.setmytooltip(html);
 		Myface.setmyinfobox(URL);
 		
-		return listemall;
+		return listAlll;
 	}
 
 	// Answer a question of the "Do you have..." kind 
 	
 	public Vector<String> CheckFor(List thelist, String input) {
 
-		Vector<String> yesorno = new Vector<String>();
+		Vector<String> yesOrNo = new Vector<String>();
 		String answer="";
-		if (classtype.isEmpty()){
-			yesorno.add("Class not recognised. Please specify if you are searching for a product, stores, services, or discounts?");
+		if (classType.isEmpty()){
+			yesOrNo.add("Class not recognised. Please specify if you are searching for a product, stores, services, or discounts?");
 		} else {
-			yesorno.add("No we don't have such a "
-				+ classtype.get(0).getClass().getSimpleName());
+			yesOrNo.add("No we don't have such a "
+				+ classType.get(0).getClass().getSimpleName());
 		}
 
 		Integer counter = 0;
@@ -470,7 +467,7 @@ public class Reasoner {
 							
 							"---------------------------------------------------------------";
 							
-					yesorno.set(0, "Yes we have such a Product"+answer);
+					yesOrNo.set(0, "Yes we have such a Product"+answer);
 					
 				}
 			}
@@ -490,7 +487,7 @@ public class Reasoner {
 							
 							"---------------------------------------------------------------";
 							
-					yesorno.set(0, "Yes we have such a Service"+answer);
+					yesOrNo.set(0, "Yes we have such a Service"+answer);
 					
 				}
 			}
@@ -511,7 +508,7 @@ public class Reasoner {
 							
 							"---------------------------------------------------------------";
 							
-					yesorno.set(0, "Yes we have such a Discount"+answer);
+					yesOrNo.set(0, "Yes we have such a Discount"+answer);
 					
 				}
 			}
@@ -537,32 +534,32 @@ public class Reasoner {
 							
 							"---------------------------------------------------------------";
 							
-					yesorno.set(0, "Check our London stores below:"+answer);
+					yesOrNo.set(0, "Check our London stores below:"+answer);
 				}
 			}
 		}
 		
 
-		if (classtype.isEmpty()) {
+		if (classType.isEmpty()) {
 			sop("Not class type given.");
 		} else {
-			URL = getURL() + classtype.get(0).getClass().getSimpleName().toLowerCase();			
+			URL = getURL() + classType.get(0).getClass().getSimpleName().toLowerCase();			
 			sop("URL = "+URL);
-			tooltipstring = readwebsite(URL);
-			String html = "<html>" + tooltipstring + "</html>";
+			toolTipString = readwebsite(URL);
+			String html = "<html>" + toolTipString + "</html>";
 			Myface.setmytooltip(html);
 			Myface.setmyinfobox(URL);
 		}
 		
 		sop(answer);		
-		return yesorno;
+		return yesOrNo;
 	}
 
 	//  Method to retrieve the location information from the object (Where is...) kind
 
-	public String Location(List classtypelist, String input) {
+	public String Location(List classTypelist, String input) {
 
-		List thelist = classtypelist;
+		List thelist = classTypelist;
 		String location = "";
 
 		// if a pronomial was used "it", "them" etc: Reference to the recent thing
@@ -626,11 +623,11 @@ public class Reasoner {
 
 						counter = i;
 						location = (curStore.getStoreName() + " ");
-						Currentindex = counter;
+						CurrentIndex = counter;
 						/*Clear it before adding (changing) theRecentThing*/
 						theRecentThing.clear(); 									
-						classtype = theServiceList;                                   
-						theRecentThing.add(classtype.get(Currentindex));
+						classType = theServiceList;                                   
+						theRecentThing.add(classType.get(CurrentIndex));
 						/*Force break*/
 						i = thelist.size() + 1; 						
 					}
@@ -651,11 +648,11 @@ public class Reasoner {
 
 						counter = i;
 						location = (curProduct.getLocation() + " ");
-						Currentindex = counter;
+						CurrentIndex = counter;
 						/*Clear it before adding (changing) theRecentThing*/
 						theRecentThing.clear(); 									
-						classtype = theProductList;                                    
-						theRecentThing.add(classtype.get(Currentindex));
+						classType = theProductList;                                    
+						theRecentThing.add(classType.get(CurrentIndex));
 						/*Force break*/
 						i = thelist.size() + 1; 									
 					}
@@ -675,11 +672,11 @@ public class Reasoner {
 
 						counter = i;
 						location = (curService.getServiceName() + " ");
-						Currentindex = counter;
+						CurrentIndex = counter;
 						/*Clear it before adding (changing) theRecentThing*/
 						theRecentThing.clear(); 									
-						classtype = theServiceList;                                 
-						theRecentThing.add(classtype.get(Currentindex));
+						classType = theServiceList;                                 
+						theRecentThing.add(classType.get(CurrentIndex));
 						/*Force break*/
 						i = thelist.size() + 1; 									
 					}
@@ -693,10 +690,10 @@ public class Reasoner {
 			}
 		}
 
-		URL = getURL() + classtype.get(0).getClass().getSimpleName().toLowerCase();
+		URL = getURL() + classType.get(0).getClass().getSimpleName().toLowerCase();
 		sop("URL = "+URL);
-		tooltipstring = readwebsite(URL);
-		String html = "<html>" + tooltipstring + "</html>";
+		toolTipString = readwebsite(URL);
+		String html = "<html>" + toolTipString + "</html>";
 		Myface.setmytooltip(html);
 		Myface.setmyinfobox(URL);
 
@@ -745,7 +742,7 @@ public class Reasoner {
 
 	public String readwebsite(String url) {
 
-		String webtext = "";
+		String webText = "";
 		try {
 			BufferedReader readit = new BufferedReader(new InputStreamReader(
 					new URL(url).openStream()));
@@ -755,19 +752,19 @@ public class Reasoner {
 			sop("Reader okay");
 
 			while (lineread != null) {
-				webtext = webtext + lineread;
+				webText = webText + lineread;
 				lineread = readit.readLine();				
 			}
 			
-			webtext = webtext.substring(webtext.indexOf("<ul>"),webtext.indexOf("</ul>"));
+			webText = webText.substring(webText.indexOf("<ul>"),webText.indexOf("</ul>"));
 
-			webtext = "<table width=\"700\"><tr><td>" + webtext
+			webText = "<table width=\"700\"><tr><td>" + webText
 					+ "</ul></td></tr></table>";
 
 		} catch (Exception e) {
-			webtext = "Not yet";
+			webText = "Not yet";
 			sop("Error connecting to Wikipedia");
 		}
-		return webtext;
+		return webText;
 	}
 }

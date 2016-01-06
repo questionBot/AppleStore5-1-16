@@ -1,3 +1,17 @@
+/*
+ * SOME OF THE QUESTIONS TO BE RUN :
+ * 
+ * 		list products
+ * 		is there a laptop product? 
+ * 		is there a apple store in london?
+ * 		count discounts 
+ * 		display all services
+ * 		display stores
+ * 		do you have a student discount
+ * 		
+ * 		i am looking for P3Je service     .... there no such a service
+ *  
+ * */
 package Examples;
 
 import java.awt.Dimension;

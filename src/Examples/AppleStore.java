@@ -30,19 +30,12 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="city" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="street" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="housenumber" type="{http://www.w3.org/2001/XMLSchema}integer"/>
- *         &lt;element name="postcode" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         
- *         &lt;element name="Book" type="{}Book" maxOccurs="unbounded"/>
- *         
+ *         &lt;element name="houseNumber" type="{http://www.w3.org/2001/XMLSchema}integer"/>
+ *         &lt;element name="postCode" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="Store" type="{}Store" maxOccurs="unbounded"/>
  *         &lt;element name="Product" type="{}Product" maxOccurs="unbounded"/>
  *         &lt;element name="Service" type="{}Service" maxOccurs="unbounded"/>
  *         &lt;element name="Discount" type="{}Discount" maxOccurs="unbounded"/>
- *         
- *         &lt;element name="Member" type="{}Member" maxOccurs="unbounded"/>
- *         &lt;element name="Catalog" type="{}Catalog" maxOccurs="unbounded"/>
- *         &lt;element name="Lending" type="{}Lending" maxOccurs="unbounded"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -56,8 +49,8 @@ import javax.xml.bind.annotation.XmlType;
     "name",
     "city",
     "street",
-    "housenumber",
-    "postcode",
+    "houseNumber",
+    "postCode",
     "store",
     "product",
     "service",
@@ -72,9 +65,9 @@ public class AppleStore {
     @XmlElement(required = true)
     protected String street;
     @XmlElement(required = true)
-    protected BigInteger housenumber;
+    protected BigInteger houseNumber;
     @XmlElement(required = true)
-    protected String postcode;
+    protected String postCode;
     
     
     @XmlElement(name = "Store", required = true)
@@ -168,7 +161,7 @@ public class AppleStore {
      *     
      */
     public BigInteger getHousenumber() {
-        return housenumber;
+        return houseNumber;
     }
 
     /**
@@ -180,11 +173,11 @@ public class AppleStore {
      *     
      */
     public void setHousenumber(BigInteger value) {
-        this.housenumber = value;
+        this.houseNumber = value;
     }
 
     /**
-     * Gets the value of the postcode property.
+     * Gets the value of the postCode property.
      * 
      * @return
      *     possible object is
@@ -192,11 +185,11 @@ public class AppleStore {
      *     
      */
     public String getPostcode() {
-        return postcode;
+        return postCode;
     }
 
     /**
-     * Sets the value of the postcode property.
+     * Sets the value of the postCode property.
      * 
      * @param value
      *     allowed object is
@@ -204,11 +197,11 @@ public class AppleStore {
      *     
      */
     public void setPostcode(String value) {
-        this.postcode = value;
+        this.postCode = value;
     }
 
     /**
-     * Gets the value of the book property.
+     * Gets the value of the store property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
@@ -237,7 +230,7 @@ public class AppleStore {
     }
     
     /**
-     * Gets the value of the book property.
+     * Gets the value of the product property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
@@ -267,7 +260,7 @@ public class AppleStore {
     }
 
     /**
-     * Gets the value of the book property.
+     * Gets the value of the service property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
@@ -296,7 +289,7 @@ public class AppleStore {
     }
     
     /**
-     * Gets the value of the book property.
+     * Gets the value of the discount property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,

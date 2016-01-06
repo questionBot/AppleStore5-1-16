@@ -53,10 +53,8 @@ public class Store {
     @XmlElement(required = true)
     protected String phoneNumber;
     
-    
-
     /**
-     * Gets the value of the name property.
+     * Gets the value of the StoreName property.
      * 
      * @return
      *     possible object is
@@ -68,7 +66,7 @@ public class Store {
     }
 
     /**
-     * Sets the value of the producttype property.
+     * Sets the value of the storeName property.
      * 
      * @param value
      *     allowed object is
@@ -152,7 +150,7 @@ public class Store {
     }
 
     /**
-     * Gets the value of the availability property.
+     * Gets the value of the postCode property.
      * 
      */
     public String getPostcode() {
@@ -160,7 +158,7 @@ public class Store {
     }
 
     /**
-     * Sets the value of the availability property.
+     * Sets the value of the postCode property.
      * 
      */
     public void setPostcode(String value) {

@@ -75,7 +75,7 @@
 		<city>London</city>
 		<street>Westfield Stratford City</street>
 		<houseNumber>The Arcade</houseNumber>
-		<postcode>E20 1EQ</postcode>	
+		<postCode>E20 1EQ</postCode>	
 		<phoneNumber>020 8277 2200</phoneNumber>
 	</Store> 
 	
@@ -84,7 +84,7 @@
 		<city>London</city>
 		<street>Westfield White City</street>
 		<houseNumber>n/a</houseNumber>
-		<postcode>W12 7GF</postcode>	
+		<postCode>W12 7GF</postCode>	
 		<phoneNumber>020 8433 4600</phoneNumber>
 	</Store>
 	
@@ -93,7 +93,7 @@
 		<city>London</city>
 		<street>Regent Street</street>
 		<houseNumber>235</houseNumber>
-		<postcode>W1B 2EL</postcode>	
+		<postCode>W1B 2EL</postCode>	
 		<phoneNumber>020 7153 9000</phoneNumber>
 	</Store> 
 	
@@ -102,7 +102,7 @@
 		<city>London</city>
 		<street>The Piazza</street>
 		<houseNumber>1-7</houseNumber>
-		<postcode>WC2E 8HB</postcode>	
+		<postCode>WC2E 8HB</postCode>	
 		<phoneNumber>020 7447 1400</phoneNumber>
 	</Store>   
 	
@@ -111,7 +111,7 @@
 		<city>London</city>
 		<street>Lower East Mall</street>
 		<houseNumber>1</houseNumber>
-		<postcode>NW4 3FP</postcode>	
+		<postCode>NW4 3FP</postCode>	
 		<phoneNumber>020 3126 9200</phoneNumber>	
 	</Store>        
 	
